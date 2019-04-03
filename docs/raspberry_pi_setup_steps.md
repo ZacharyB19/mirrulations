@@ -1,5 +1,7 @@
 ##Raspberry Pi Setup
 
+change password and change hostname
+
 ###Server Setup
 Run the commands and make the file edits in order.
 
@@ -125,9 +127,9 @@ password: `mirrulati0ns<#_on_pi_stack>`
 
 `cd src/mirrulations_core/`
 
-`nano __main.py__`
+`nano __main__.py`
 
-- CHANGE the existing `client_id` to `client_id= ''.join(random.choice(string.asciiuppercase + string.digits) for _ in range(16))`
+- CHANGE the existing `client_id` to `client_id= ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(16))`
 - Save and exit file
 
 `cd /home/pi`
@@ -137,7 +139,7 @@ password: `mirrulati0ns<#_on_pi_stack>`
 - ADD the following two lines to the top of the file.
 
 `import os`
-`os.system('python3 home/pi/mirrulations/src/mirrulations_core/__main.py__')`
+`os.system('python3 home/pi/mirrulations/src/mirrulations_core/__main__.py')`
 
 - Save and exit file
 
@@ -165,7 +167,24 @@ password: `mirrulati0ns<#_on_pi_stack>`
 
 `sudo systemctl daemon-reload`
 
-`sudo systemctl enable mirrulations.service1`
+`sudo systemctl enable mirrulations.service`
+
+`cd mirrulations/src/mirrulations_core`
+
+`python3 __main__.py`
+
+- Enter the following for each prompt:
+	- IP: 172.31.228.66
+	- Port: 8080
+	- API key:<api key>
+
+- You will get an error running this, ignore it and continue with the instructions
+
+`cd ~/mirrulations/`
+
+`sudo pip3 install -e .`
 
 `sudo reboot`
+
+To check that system is active do `sudo systemctl status mirrulations.service`
 
