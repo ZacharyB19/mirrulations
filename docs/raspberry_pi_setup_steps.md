@@ -3,7 +3,40 @@
 change password and change hostname
 
 ###Server Setup
-Run the commands and make the file edits in order.
+
+The following commands are for setup of the server on a PC/MAC.
+
+### Prerequisites
+
+1. Python 3.7.2 or greater
+2. Redis (if running a server)
+
+### Setup
+
+1. Get the repository:
+
+		Fork MoravianCollege/mirrulations
+		git clone https://github.com/your_username/mirrulations.git
+		cd mirrulations
+
+2. Set up your virtual environment:
+
+		python3 -m venv .env
+		source .env/bin/activate/
+		pip install -e .
+
+3. Run the tests:
+
+		pytest
+		
+4. Start the server:
+		
+		mirrulations_server --config
+		
+- Enter the IP of your computer, use port 8080, and your api key.
+
+
+The following commands are for setup of the server on a raspberry pi.
 
 
 `ssh pi@172.31.228.70`
